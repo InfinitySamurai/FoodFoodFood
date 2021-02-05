@@ -1,3 +1,9 @@
 export const SidePanel = () => {
-  return <div>This is the side panel</div>;
+  return (
+    <div className="bg-green-100">
+      <div>Recipes</div>
+      <div>ingredients</div>
+      <div>Tags</div>
+    </div>
+  );
 };

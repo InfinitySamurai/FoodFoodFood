@@ -1,6 +1,11 @@
-import '../styles/globals.css';
+import 'tailwindcss/tailwind.css';
 
-function MyApp({ Component, pageProps }) {
+interface IProps {
+  Component: any;
+  pageProps: any;
+}
+
+function MyApp({ Component, pageProps }: IProps) {
   return <Component {...pageProps} />;
 }
 

@@ -1,11 +1,10 @@
 import { ContentWrapper } from 'components/ContentWrapper';
-import { Header } from 'components/Header';
 
 export default function Recipes() {
   return (
     <div>
       <ContentWrapper>
-        <div>DOes this work?</div>
+        <div className="bg-red-100">DOes this wffrk?</div>
       </ContentWrapper>
     </div>
   );
