@@ -1,5 +1,4 @@
-import { Footer } from './Footer';
-import { Header } from './Header';
+import { MenuItem } from './MenuItems';
 import { SidePanel } from './SidePanel';
 
 interface IProps {
@@ -8,13 +7,13 @@ interface IProps {
 
 export const ContentWrapper = (props: IProps) => {
   return (
-    <div className="flex flex-col container mx-5 my-5 h-screen">
-      <Header />
-      <div className="flex flex-grow flex-row">
-        <SidePanel />
-        {props.children}
-      </div>
-      <Footer />
+    <div className="flex h-screen bg-gray-100 dark:bg-gray-800 font-roboto">
+      <SidePanel>
+        <MenuItem text="Recipes" link="recipes"></MenuItem>
+        <MenuItem text="Ingredients" link="ingredients"></MenuItem>
+        <MenuItem text="Tags" link="tags"></MenuItem>
+      </SidePanel>
+      {props.children}
     </div>
   );
 };
