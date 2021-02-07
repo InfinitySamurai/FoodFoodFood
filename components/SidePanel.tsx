@@ -8,7 +8,7 @@ export const SidePanel = (props: IProps) => {
       <div className="flex items-center justify-center mt-8">
         <div className="flex items-center">
           <span className="text-gray-800 dark:text-white text-2xl font-semibold">
-            Dashboard
+            My Recipe Manager
           </span>
         </div>
       </div>

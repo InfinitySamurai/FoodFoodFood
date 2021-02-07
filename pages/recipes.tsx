@@ -1,11 +1,16 @@
+import { ContentTitle } from 'components/ContentTitle';
 import { ContentWrapper } from 'components/ContentWrapper';
+import { MainWrapper } from 'components/MainWrapper';
+import { Page } from 'lib/enums';
 
 export default function Recipes() {
   return (
     <div>
-      <ContentWrapper>
-        <div className="bg-red-100">DOes this wffrk?</div>
-      </ContentWrapper>
+      <MainWrapper currentPage={Page.RECIPE}>
+        <ContentWrapper>
+          <ContentTitle title="Recipes" />
+        </ContentWrapper>
+      </MainWrapper>
     </div>
   );
 }
