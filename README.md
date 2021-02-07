@@ -6,7 +6,7 @@ First, copy the `.env-example` into a file called `.env.local`. Fill in the requ
 
 - MONGO_URI: Connection string to your mongo instance with user and pass is connection string
 
-First, run the development server:
+Then, run the development server:
 
 ```bash
 npm run dev
