@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+First, copy the `.env-example` into a file called `.env.local`. Fill in the required vars
+
+- MONGO_URI: Connection string to your mongo instance with user and pass is connection string
+
 First, run the development server:
 
 ```bash
