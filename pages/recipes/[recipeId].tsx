@@ -11,7 +11,8 @@ export default function Recipe() {
     <div>
       <MainWrapper currentPage={Page.RECIPE}>
         <ContentWrapper>
-          <ContentHeader title={`Some recipe ${recipeId}`} />
+          <ContentHeader title={`Recipes`} />
+          <h2 className="text-xl">{recipeId}</h2>
         </ContentWrapper>
       </MainWrapper>
     </div>

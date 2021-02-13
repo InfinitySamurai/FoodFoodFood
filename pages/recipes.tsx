@@ -1,3 +1,4 @@
+import { Button } from 'components/Button';
 import { ContentHeader } from 'components/ContentHeader';
 import { ContentWrapper } from 'components/ContentWrapper';
 import { MainWrapper } from 'components/MainWrapper';
@@ -9,7 +10,10 @@ export default function Recipes() {
       <MainWrapper currentPage={Page.RECIPE}>
         <ContentWrapper>
           <ContentHeader title="Recipes" />
-          <div>This would be the content</div>
+          <div>
+            <Button text="New Recipe" />
+          </div>
+          <div>more content here</div>
         </ContentWrapper>
       </MainWrapper>
     </div>

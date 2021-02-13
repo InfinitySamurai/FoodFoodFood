@@ -16,7 +16,7 @@ export const MenuItem = (props: IProps) => {
     : `${unselectedClass} ${classCommonComponents}`;
   return (
     <div className={componentClass}>
-      <a href={props.link}>{props.text}</a>
+      <a href={`/${props.link}`}>{props.text}</a>
     </div>
   );
 };
