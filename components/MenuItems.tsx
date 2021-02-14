@@ -1,4 +1,4 @@
-import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Link, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import KitchenOutlinedIcon from '@material-ui/icons/KitchenOutlined';
 
 interface IProps {
@@ -9,15 +9,13 @@ interface IProps {
 
 export const MenuItem = (props: IProps) => {
   return (
-    <div>
-      <ListItem button>
-        <ListItemText>{props.text}</ListItemText>
+    <Link href={props.link} color="inherit">
+      <ListItem button selected={props.selected}>
         <ListItemIcon>
-          <KitchenOutlinedIcon>
-            {/* <a href={`/${props.link}`}></a> */}
-          </KitchenOutlinedIcon>
+          <KitchenOutlinedIcon />
         </ListItemIcon>
+        <ListItemText primary={props.text} />
       </ListItem>
-    </div>
+    </Link>
   );
 };

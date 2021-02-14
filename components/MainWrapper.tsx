@@ -9,6 +9,9 @@ import {
   Drawer,
   IconButton,
   List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   makeStyles,
   Toolbar,
   Typography,
@@ -19,7 +22,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
 import { Page } from 'lib/enums';
 import { MenuItem } from './MenuItems';
-import { SidePanel } from './SidePanel';
+
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 interface IProps {
   currentPage: Page;
@@ -119,8 +123,6 @@ export const MainWrapper = (props: IProps) => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
