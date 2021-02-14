@@ -2,42 +2,38 @@ import { Button, MenuItem } from '@material-ui/core';
 import { Formik, Form, Field, FieldArray } from 'formik';
 import { measurementData, Recipe } from 'lib/types';
 import { TextField, Select } from 'formik-material-ui';
+import { Alert } from '@material-ui/lab';
 
 interface Props {
-  initialValues?: Recipe;
+  recipe?: Recipe;
   closeButtonFunction: () => void;
 }
 
-interface RecipeFormProps {
+interface FormRecipe {
   name: string;
-  ingredients: [
-    {
-      name: string;
-      amount: number;
-      measurement: string;
-    }
-  ];
+  ingredients: {
+    name: string;
+    amount: number;
+    measurement: string;
+  }[];
   method: string[];
 }
 
 export const RecipeEditor = (props: Props) => {
-  const initialValues: RecipeFormProps = {
+  let initialValues: FormRecipe = {
     name: '',
-    ingredients: [
-      {
-        name: 'Ginger',
-        measurement: 'TEASPOON',
-        amount: 50,
-      },
-    ],
-    method: ['Something'],
-    ...props.initialValues,
+    ingredients: [],
+    method: [],
   };
+
+  if (props.recipe) {
+    initialValues = recipeToFormRecipe(props.recipe);
+  }
 
   return (
     <div>
       <h2>Recipe Editor</h2>
-      <Formik<RecipeFormProps>
+      <Formik<FormRecipe>
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           console.log(values, actions);
@@ -78,8 +74,20 @@ export const RecipeEditor = (props: Props) => {
                           );
                         })}
                       </Field>
+                      <Field
+                        component={TextField}
+                        name={`ingredients.${index}.name`}
+                        type="input"
+                        label="Name"
+                      />
                     </div>
                   ))}
+                  {formikProps.touched.ingredients &&
+                    formikProps.errors.ingredients && (
+                      <Alert severity="error">
+                        {formikProps.errors.ingredients}
+                      </Alert>
+                    )}
                   <Button
                     onClick={() => {
                       arrayHelper.push({});
@@ -119,7 +127,9 @@ export const RecipeEditor = (props: Props) => {
                 </div>
               )}
             />
-
+            {formikProps.touched.method && formikProps.errors.method && (
+              <Alert severity="error">{formikProps.errors.method}</Alert>
+            )}
             <Button
               color="primary"
               type="submit"
@@ -137,7 +147,7 @@ export const RecipeEditor = (props: Props) => {
   );
 };
 
-function validateRecipe(recipe: RecipeFormProps) {
+function validateRecipe(recipe: FormRecipe) {
   // TODO fix this type
   const errors: any = {};
   if (!recipe.name) {
@@ -146,8 +156,22 @@ function validateRecipe(recipe: RecipeFormProps) {
   if (recipe.ingredients.length <= 0) {
     errors.ingredients = 'Must have ingredients';
   }
-  // if (recipe.method.length <= 0) {
-  //   errors.method = 'Must have steps';
-  // }
+  if (recipe.method.length <= 0) {
+    errors.method = 'Must have steps';
+  }
   return errors;
+}
+
+function recipeToFormRecipe(recipe: Recipe): FormRecipe {
+  const formRecipe: FormRecipe = {
+    name: recipe.name,
+    ingredients: recipe.ingredients.map((ingredient) => ({
+      name: ingredient.ingredient.name,
+      amount: ingredient.amount,
+      measurement: ingredient.measurement.long,
+    })),
+    method: recipe.method,
+  };
+
+  return formRecipe;
 }
