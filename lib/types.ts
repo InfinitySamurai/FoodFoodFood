@@ -24,11 +24,11 @@ export interface Measurements {
 }
 
 export const measurementData: Measurements = {
-  TABLESPOON: { short: 'Tbsp', long: 'Tablespoon' },
-  TEASPOON: { short: 'Tsp', long: 'Teaspoon' },
-  CUP: { short: 'Cup', long: 'Cup' },
-  LITRE: { short: 'L', long: 'Litre' },
-  MILLILITER: { short: 'ml', long: 'Millilitre' },
-  GRAM: { short: 'g', long: 'gram' },
-  KILOGRAM: { short: 'Kg', long: 'Kilogram' },
+  TABLESPOON: { short: 'Tbsp', long: 'Tablespoons' },
+  TEASPOON: { short: 'Tsp', long: 'Teaspoons' },
+  CUP: { short: 'Cup', long: 'Cups' },
+  LITRE: { short: 'L', long: 'Litres' },
+  MILLILITER: { short: 'ml', long: 'Millilitres' },
+  GRAM: { short: 'g', long: 'grams' },
+  KILOGRAM: { short: 'Kg', long: 'Kilograms' },
 };

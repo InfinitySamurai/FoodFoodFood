@@ -8,23 +8,36 @@ interface Props {
   closeButtonFunction: () => void;
 }
 
-export const RecipeCreator = (props: Props) => {
-  const initialValues: Recipe = {
+interface RecipeFormProps {
+  name: string;
+  ingredients: [
+    {
+      name: string;
+      amount: number;
+      measurement: string;
+    }
+  ];
+  method: string[];
+}
+
+export const RecipeEditor = (props: Props) => {
+  const initialValues: RecipeFormProps = {
     name: '',
     ingredients: [
       {
-        ingredient: { name: 'Ginger' },
+        name: 'Ginger',
+        measurement: 'TEASPOON',
         amount: 50,
-        measurement: 'TABLESPOON',
       },
     ],
-    method: [],
+    method: ['Something'],
     ...props.initialValues,
   };
+
   return (
     <div>
-      <h2>Recipe Creator</h2>
-      <Formik<Recipe>
+      <h2>Recipe Editor</h2>
+      <Formik<RecipeFormProps>
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           console.log(values, actions);
@@ -77,6 +90,36 @@ export const RecipeCreator = (props: Props) => {
                 </div>
               )}
             />
+
+            <h3>Method</h3>
+            <FieldArray
+              name="method"
+              render={(arrayHelper) => (
+                <div>
+                  {formikProps.values.method.map((method, index) => (
+                    <div key={index}>
+                      <Field
+                        component={TextField}
+                        name={`method.${index}`}
+                        type="input"
+                        label="Method"
+                        id="standard-textarea"
+                        placeholder="Placeholder"
+                        multiline
+                      />
+                    </div>
+                  ))}
+                  <Button
+                    onClick={() => {
+                      arrayHelper.push('');
+                    }}
+                  >
+                    Add Method
+                  </Button>
+                </div>
+              )}
+            />
+
             <Button
               color="primary"
               type="submit"
@@ -94,7 +137,7 @@ export const RecipeCreator = (props: Props) => {
   );
 };
 
-function validateRecipe(recipe: Recipe) {
+function validateRecipe(recipe: RecipeFormProps) {
   // TODO fix this type
   const errors: any = {};
   if (!recipe.name) {
@@ -103,8 +146,8 @@ function validateRecipe(recipe: Recipe) {
   if (recipe.ingredients.length <= 0) {
     errors.ingredients = 'Must have ingredients';
   }
-  if (recipe.method.length <= 0) {
-    errors.method = 'Must have steps';
-  }
+  // if (recipe.method.length <= 0) {
+  //   errors.method = 'Must have steps';
+  // }
   return errors;
 }

@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import { MainWrapper } from 'components/MainWrapper';
-import { RecipeCreator } from 'components/recipes/RecipeCreator';
+import { RecipeEditor } from 'components/recipes/RecipeEditor';
 import { RecipeViewer } from 'components/recipes/RecipeViewer';
 import { Page } from 'lib/enums';
 import { useState } from 'react';
@@ -26,7 +26,7 @@ export default function Recipes() {
         )}
       </div>
 
-      {addRecipe && <RecipeCreator closeButtonFunction={closeRecipeCreator} />}
+      {addRecipe && <RecipeEditor closeButtonFunction={closeRecipeCreator} />}
       {!addRecipe && <RecipeViewer recipes={[]} />}
     </MainWrapper>
   );
