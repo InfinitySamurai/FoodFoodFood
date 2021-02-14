@@ -13,7 +13,7 @@ export const ContentHeader = (props: IProps) => {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <button className="flex text-gray-600 dark:text-gray-300 focus:outline-none">
+        {/* <button className="flex text-gray-600 dark:text-gray-300 focus:outline-none">
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
             <path
               d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
@@ -49,7 +49,7 @@ export const ContentHeader = (props: IProps) => {
             src="https://images.unsplash.com/photo-1553267751-1c148a7280a1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
             alt="Your avatar"
           />
-        </button>
+        </button> */}
       </div>
     </header>
   );

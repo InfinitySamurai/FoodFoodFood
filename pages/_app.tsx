@@ -1,5 +1,3 @@
-import 'tailwindcss/tailwind.css';
-
 interface IProps {
   Component: any;
   pageProps: any;

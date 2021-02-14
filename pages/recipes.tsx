@@ -6,16 +6,14 @@ import { Page } from 'lib/enums';
 
 export default function Recipes() {
   return (
-    <div>
-      <MainWrapper currentPage={Page.RECIPE}>
-        <ContentWrapper>
-          <ContentHeader title="Recipes" />
-          <div>
-            <Button text="New Recipe" />
-          </div>
-          <div>more content here</div>
-        </ContentWrapper>
-      </MainWrapper>
-    </div>
+    <MainWrapper currentPage={Page.RECIPE}>
+      <ContentWrapper>
+        <ContentHeader title="Recipes" />
+        <div>
+          <Button text="New Recipe" />
+        </div>
+        <div>more content here</div>
+      </ContentWrapper>
+    </MainWrapper>
   );
 }
