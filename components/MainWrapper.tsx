@@ -172,7 +172,7 @@ export const MainWrapper = (props: IProps) => {
           <MenuItem
             text="Recipes"
             link="/recipes"
-            selected={currentPage === Page.RECIPE}
+            selected={currentPage === Page.RECIPES}
           ></MenuItem>
           <MenuItem
             text="Ingredients"
