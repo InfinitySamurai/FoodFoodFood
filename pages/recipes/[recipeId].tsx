@@ -7,7 +7,7 @@ export default function Recipe() {
   const { recipeId } = router.query;
   return (
     <div>
-      <MainWrapper currentPage={Page.RECIPE}>
+      <MainWrapper currentPage={Page.RECIPES}>
         <h2 className="text-xl">{recipeId}</h2>
       </MainWrapper>
     </div>
