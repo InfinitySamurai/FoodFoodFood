@@ -9,9 +9,6 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   makeStyles,
   Toolbar,
   Typography,
@@ -22,8 +19,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import clsx from 'clsx';
 import { Page } from 'lib/enums';
 import { MenuItem } from './MenuItems';
-
-import DashboardIcon from '@material-ui/icons/Dashboard';
 
 interface IProps {
   currentPage: Page;
@@ -151,7 +146,7 @@ export const MainWrapper = (props: IProps) => {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            {props.currentPage}
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -176,17 +171,17 @@ export const MainWrapper = (props: IProps) => {
         <List>
           <MenuItem
             text="Recipes"
-            link="recipes"
+            link="/recipes"
             selected={currentPage === Page.RECIPE}
           ></MenuItem>
           <MenuItem
             text="Ingredients"
-            link="ingredients"
+            link="/ingredients"
             selected={currentPage === Page.INGREDIENTS}
           ></MenuItem>
           <MenuItem
             text="Tags"
-            link="tags"
+            link="/tags"
             selected={currentPage === Page.TAGS}
           ></MenuItem>
         </List>

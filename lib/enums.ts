@@ -1,5 +1,5 @@
 export enum Page {
-  RECIPE = 'Recipe',
+  RECIPE = 'Recipes',
   INGREDIENTS = 'Ingredients',
   TAGS = 'Tags',
 }
